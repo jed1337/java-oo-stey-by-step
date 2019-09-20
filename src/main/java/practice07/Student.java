@@ -11,7 +11,7 @@ public class Student extends HasOccupation {
     }
 
     @Override
-    public String introduce() {
-        return String.format("%s. I am at Class %d.",introduceWithOccupation(), klass.getNumber());
+    protected String specificDescription() {
+        return String.format("I am at Class %d", klass.getNumber());
     }
 }

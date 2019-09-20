@@ -18,10 +18,10 @@ public class Person {
     }
 
     public String introduce() {
-        return backIntroduce();
+        return backIntroduce("");
     }
 
-    public String backIntroduce(){
-        return String.format("My name is %s. I am %d years old.", name, age);
+    public String backIntroduce(String specificIntroduction){
+        return String.format("My name is %s. I am %d years old.%s", name, age, specificIntroduction);
     }
 }

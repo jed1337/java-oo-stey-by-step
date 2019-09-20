@@ -11,20 +11,9 @@ public class Teacher extends HasOccupation {
         super(name, age, klass);
     }
 
-    @Override
-    public String introduce() {
-        return String.format("%s. I teach %s.",introduceWithOccupation(), getKlassMessage());
-    }
-
-    private String getKlassMessage() {
-        if(klass == null){
-            return "No Class";
-        }
-        return "Class " + klass.getNumber();
-    }
-
     public String introduceWith(Student student) {
-        return String.format("%s. I %s %s.", introduceWithOccupation(), teachVerb(student), student.getName());
+        return backIntroduce(String.format(" %s. I %s %s.",
+                introduceOccupation(), teachVerb(student), student.getName()));
     }
 
     private String teachVerb(Student student) {
@@ -43,4 +32,15 @@ public class Teacher extends HasOccupation {
         return "Teacher";
     }
 
+    @Override
+    protected String specificDescription() {
+        return String.format("I teach %s", getKlassMessage());
+    }
+
+    private String getKlassMessage() {
+        if(klass == null){
+            return "No Class";
+        }
+        return "Class " + klass.getNumber();
+    }
 }

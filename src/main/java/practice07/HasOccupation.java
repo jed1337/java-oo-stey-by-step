@@ -12,9 +12,16 @@ public abstract class HasOccupation extends Person {
         return klass;
     }
 
-    protected String introduceWithOccupation() {
-        return String.format("%s I am a %s", super.backIntroduce(), occupation());
+    @Override
+    public String introduce() {
+        return backIntroduce(String.format(" %s. %s.", introduceOccupation(), specificDescription()));
+    }
+
+    protected String introduceOccupation(){
+        return String.format("I am a %s", occupation());
     }
 
     protected abstract String occupation();
+
+    protected abstract String specificDescription();
 }
