@@ -1,5 +1,5 @@
 package practice11;
 
-public interface Observable <T>{
+public interface Observable{
     void addObserver(Observer observer);
 }

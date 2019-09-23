@@ -20,6 +20,10 @@ public class Teacher extends HasOccupation implements Observer{
         }
     }
 
+    public List<Klass> getClasses() {
+        return klasses;
+    }
+
     public String introduceWith(Student student) {
         return backIntroduce(String.format(" %s. I %s %s.",
                 introduceOccupation(), teachVerb(student), student.getName()));
@@ -30,10 +34,6 @@ public class Teacher extends HasOccupation implements Observer{
             return "teach";
         }
         return "don't teach";
-    }
-
-    public List<Klass> getClasses() {
-        return klasses;
     }
 
     @Override
@@ -61,7 +61,8 @@ public class Teacher extends HasOccupation implements Observer{
     }
 
     public boolean isTeaching(Student student) {
-        return klasses.contains(student.getKlass());
+        return klasses.stream()
+                .anyMatch(student::isIn);
     }
 
     @Override

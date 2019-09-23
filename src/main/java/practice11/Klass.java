@@ -21,12 +21,16 @@ public class Klass implements Observable{
         return number;
     }
 
-    public String getDisplayName() {
-        return "Class " + number;
+    public Student getLeader() {
+        return leader;
     }
 
     public List<Student> getStudentList() {
         return studentList;
+    }
+
+    public String getDisplayName() {
+        return "Class " + number;
     }
 
     public void assignLeader(Student leader) {
@@ -39,10 +43,6 @@ public class Klass implements Observable{
         else{
             System.out.println("It is not one of us.");
         }
-    }
-
-    public Student getLeader() {
-        return leader;
     }
 
     public void appendMember(Student student) {
